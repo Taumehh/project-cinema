@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+    text-decoration: white;
+}
+
+header {
+    border: solid 5px black;
+    border-radius: 5px;
+}
