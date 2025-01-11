@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinéClub</title>
-    <link href="style.css" rel="stylesheet" />
+    <title>Accueil - Cinéma Village</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Ciné Club</h1>
+        <h1>Cinéma Village</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Recherchez un film...">
+            <button onclick="window.location.href='search.html';">Rechercher</button>
+        </div>
     </header>
-    
+    <div class="container">
+        <h2>Films Tendance</h2>
+        <div class="film-grid" id="trend-movies">
+        </div>
+        <button id="load-more">Charger plus de films de 2024</button>
+    </div>
+    <footer>
+        &copy; 2025 Cinéma Village - Tous droits réservés.
+    </footer>
+    <script src="/script/films_tendances.js"></script>
 </body>
 </html>
