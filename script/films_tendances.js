@@ -29,5 +29,4 @@ document.querySelector('#load-more').addEventListener('click', () => {
     fetchTrendingMovies(currentPage);
 });
 
-// Charger les premiers films
 fetchTrendingMovies();

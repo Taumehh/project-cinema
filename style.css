@@ -15,10 +15,9 @@ header {
     border-bottom: 3px solid #e50914;
 }
 
-header h1 {
+header img {
     margin: 0;
-    font-size: 2.5em;
-    color: #e50914;
+    width: 200px;
 }
 
 .search-bar {
