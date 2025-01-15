@@ -119,19 +119,3 @@ footer {
     border-top: 3px solid #e50914;
     font-size: 0.9em;
 }
-
-.container {
-    display: grid;
-    grid-template-columns: 30% 70%; /* 2 colonnes */
-    min-height: 100vh; /* Hauteur de la page */
-  }
-
-  aside {
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-
-  .main-content {
-    background-color: #e8e8e8;
-    padding: 20px;
-  }
