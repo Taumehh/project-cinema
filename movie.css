@@ -1,4 +1,36 @@
-/* Général */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+#aside-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+aside p {
+    max-width: 800px;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    margin: 0 auto;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,51 +39,49 @@ body {
     color: #ffffff;
 }
 
-/* Header */
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: #333;
     padding: 20px;
     border-bottom: 3px solid #e50914;
 }
 
-header img {
-    max-height: 80px;
-    margin-right: 20px;
-}
-
 header h1 {
-    font-size: 2em;
-    color: #e50914;
     margin: 0;
+    font-size: 2em;
 }
 
-/* Main container */
+header img {
+    margin: 0;
+    width: 200px;
+}
+
 #main-container {
-    display: flex;
-    flex-wrap: wrap;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    justify-content: center;
 }
 
-/* Main content */
 main {
+    text-align: center;
     background-color: #2c2c2c;
     border: 1px solid #444;
     border-radius: 8px;
     padding: 20px;
-    text-align: center;
-    max-width: 400px;
-    flex: 1;
+    max-width: 600px;
+    width: 100%;
 }
 
 main img {
     width: 100%;
-    height: auto;
+    max-height: 500px;
+    object-fit: cover;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 main p {
@@ -60,36 +90,41 @@ main p {
     color: #cccccc;
 }
 
-/* Aside (Description) */
-#aside-container {
-    flex: 1;
-    padding: 20px;
-    max-width: 500px;
-}
-
 aside {
     background-color: #2c2c2c;
     border: 1px solid #444;
     border-radius: 8px;
     padding: 20px;
-    font-size: 1.1em;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+
+}
+
+aside h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #e50914;
+}
+
+aside p {
     line-height: 1.6;
     color: #cccccc;
 }
 
-/* Footer */
 footer {
     background-color: #333;
+    padding: 10px;
     text-align: center;
-    padding: 15px;
     border-top: 3px solid #e50914;
+    font-size: 0.9em;
 }
 
 footer button {
     padding: 10px 20px;
     font-size: 1em;
     background-color: #e50914;
-    color: #ffffff;
+    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
