@@ -1,3 +1,122 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #101010;
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #151515;
+    padding: 20px 30px;
+    border-bottom: 3px solid #e50914;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+header img {
+    width: 180px;
+}
+
+#main-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+main {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+main img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+main p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+aside {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+aside h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #e50914;
+}
+
+aside p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cccccc;
+}
+
+footer {
+    background-color: #151515;
+    padding: 20px;
+    text-align: center;
+    color: #aaaaaa;
+    border-top: 3px solid #e50914;
+    font-size: 0.9rem;
+}
+
+footer button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #e50914;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+footer button:hover {
+    background-color: #bf0810;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -7,130 +126,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 0.5s;
-}
-
-#aside-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-}
-
-aside p {
-    max-width: 800px;
-    font-size: 1.1em;
-    line-height: 1.5em;
-    margin: 0 auto;
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 20px;
-    border-bottom: 3px solid #e50914;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-header img {
-    margin: 0;
-    width: 200px;
-}
-
-#main-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-main {
-    text-align: center;
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-}
-
-main img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-main p {
-    margin: 10px 0;
-    font-size: 1.2em;
-    color: #cccccc;
-}
-
-aside {
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-
-}
-
-aside h2 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: #e50914;
-}
-
-aside p {
-    line-height: 1.6;
-    color: #cccccc;
-}
-
-footer {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-    border-top: 3px solid #e50914;
-    font-size: 0.9em;
-}
-
-footer button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #e50914;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-footer button:hover {
-    background-color: #bf0810;
 }
