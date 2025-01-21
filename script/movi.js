@@ -69,7 +69,6 @@ function displayMovieDetails(movie) {
     document.querySelector('#release-date').textContent = `Date de sortie DVD : ${formattedReleaseDate}`;
     document.querySelector('#plot').textContent = `Résumé : ${translatedPlot}`;
 
-    // Ajouter des animations
     document.querySelector('header h1').classList.add('fade-in');
     document.querySelector('main img').classList.add('fade-in');
     document.querySelector('#plot').classList.add('fade-in');

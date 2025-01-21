@@ -4,12 +4,10 @@ let currentPage = 0;
 
 async function fetchTrendingMovies() {
     try {
-        // Limitez le nombre de films affichés par page (par ex., 2 films à chaque fois)
         const moviesPerPage = 2;
         const startIndex = currentPage * moviesPerPage;
         const endIndex = startIndex + moviesPerPage;
 
-        // Sélectionnez une tranche des IDs tendance
         const currentMovies = tendances.slice(startIndex, endIndex);
 
         if (currentMovies.length === 0) {
@@ -17,17 +15,14 @@ async function fetchTrendingMovies() {
             return;
         }
 
-        // Effectuez des requêtes pour chaque film
         const promises = currentMovies.map(id =>
             fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`).then(res => res.json())
         );
         const movies = await Promise.all(promises);
 
-        // Affichez uniquement les films valides
         const validMovies = movies.filter(movie => movie.Response === "True");
         displayMovies(validMovies);
 
-        // Incrémentez la page courante
         currentPage++;
     } catch (error) {
         console.error("Erreur lors de la récupération des films :", error);
@@ -46,8 +41,6 @@ function displayMovies(movies) {
     });
 }
 
-// Gestion du bouton "Charger plus"
 document.querySelector('#load-more').addEventListener('click', fetchTrendingMovies);
 
-// Charger les films au démarrage
 fetchTrendingMovies();
