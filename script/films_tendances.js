@@ -1,34 +1,34 @@
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
+const apiKey = '4640d01a';
+const tendances = ["tt26446278", "tt22022452", "tt27490099", "tt15239678", "tt30795948"];
+let currentPage = 0;
 
 async function fetchTrendingMovies() {
-    const apiKey = '4640d01a';
-    const tendances = ["tt26446278", "tt22022452", "tt27490099", "tt15239678", "tt30795948"];
-    // const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&type=movie&y=2024&p=${currentPage}`);
-    // const data = await response.json();
-
     try {
-        // Effectuer une requête pour chaque imdbID et attendre toutes les réponses
-        const promises = tendances.map(id =>
-            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`).then(response => response.json())
-        );
+        // Limitez le nombre de films affichés par page (par ex., 2 films à chaque fois)
+        const moviesPerPage = 2;
+        const startIndex = currentPage * moviesPerPage;
+        const endIndex = startIndex + moviesPerPage;
 
-        // Récupérer les données des films
+        // Sélectionnez une tranche des IDs tendance
+        const currentMovies = tendances.slice(startIndex, endIndex);
+
+        if (currentMovies.length === 0) {
+            console.warn("Aucun film supplémentaire à charger !");
+            return;
+        }
+
+        // Effectuez des requêtes pour chaque film
+        const promises = currentMovies.map(id =>
+            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`).then(res => res.json())
+        );
         const movies = await Promise.all(promises);
 
-        // Vérifiez si les films sont valides (Response === "True")
+        // Affichez uniquement les films valides
         const validMovies = movies.filter(movie => movie.Response === "True");
+        displayMovies(validMovies);
 
-        // Mélanger les films
-        const shuffledMovies = shuffleArray(validMovies);
-
-        // Afficher les films
-        displayMovies(shuffledMovies);
+        // Incrémentez la page courante
+        currentPage++;
     } catch (error) {
         console.error("Erreur lors de la récupération des films :", error);
     }
@@ -36,7 +36,6 @@ async function fetchTrendingMovies() {
 
 function displayMovies(movies) {
     const container = document.querySelector('#trend-movies');
-    container.innerHTML = ""; // Nettoyer le conteneur avant d'ajouter les nouveaux films
     movies.forEach(movie => {
         container.innerHTML += `
             <div class="film-card">
@@ -47,12 +46,8 @@ function displayMovies(movies) {
     });
 }
 
-// let currentPage = 1;
-
-// document.querySelector('#load-more').addEventListener('click', () => {
-//     currentPage++;
-//     fetchTrendingMovies(currentPage);
-// });
+// Gestion du bouton "Charger plus"
+document.querySelector('#load-more').addEventListener('click', fetchTrendingMovies);
 
 // Charger les films au démarrage
 fetchTrendingMovies();
